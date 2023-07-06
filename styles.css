@@ -38,6 +38,14 @@ html, body {
     border-bottom: 1px solid #F0F0F0;
 }
 
+@media (max-width: 768px) {
+    .header {
+        margin-bottom: 0;
+        padding: 0 0 0 1.25rem;
+        border-bottom: none;
+    }
+}
+
 .header__logo {
     flex: 0 0 auto;
     width: 6.75rem;
@@ -103,6 +111,52 @@ html, body {
         animation-fill-mode: both;
     }
 }
+
+@keyframes showMenu {
+    from {
+        transform: translateY(-1rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes hideMenu {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        transform: translateY(-1rem);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.header__item {
+    margin: 0;
+    padding: 0;
+}
+
+.header__link {
+    font-weight: bold;
+    opacity: .6;
+    transition: opacity .15s ease-in-out;
+    text-decoration: none;
+    color: #333333;
+}
+
+.header__link:hover {
+    opacity: 1;
+}
+
+.header__link_current {
+    opacity: 1;
+}
+
 .main {
     display: grid;
     flex: 0 0 auto;
@@ -189,6 +243,27 @@ html, body {
     .section__tabs {
         display: none;
     }
+}
+
+.section__tab {
+    flex: 0 0 auto;
+    padding: 0.4375rem 0.9375rem .5rem;
+    font-size: 0.8125rem;
+    font-weight: bold;
+    background: #F7F7F7;
+    border-radius: 1024px;
+    cursor: pointer;
+    transition: .25s ease-in-out;
+    transition-property: background-color, box-shadow;
+}
+
+.section__tab_active {
+    background: #FFD93E;
+}
+
+.section__tab:not(.section__tab_active):hover {
+    background: #fff;
+    box-shadow: 0 2px 6px 0 rgba(197,186,186,0.50);
 }
 
 .hero-dashboard {
